@@ -3,6 +3,10 @@ package com.keyin.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a city in the aviation system
+ * A city can have multiple airports and passengers
+ */
 public class City
 {
     private Long id;
@@ -16,24 +20,6 @@ public class City
     public City()
     {
 
-    }
-
-    public City(String name, String state, int population)
-    {
-        this.name = name;
-        this.state = state;
-        this.population = population;
-    }
-
-    public City(Long id, String name, String state, int population,
-                List<Airport> airports, List<Passenger> passengers)
-    {
-        this.id = id;
-        this.name = name;
-        this.state = state;
-        this.population = population;
-        this.airports = airports;
-        this.passengers = passengers;
     }
 
     public Long getId()

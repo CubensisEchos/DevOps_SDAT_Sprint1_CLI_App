@@ -3,6 +3,10 @@ package com.keyin.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a passenger in the aviation system
+ * Stores passenger details and relationships to city and aircraft entities
+ */
 public class Passenger
 {
     private Long id;
@@ -15,14 +19,6 @@ public class Passenger
     public Passenger()
     {
 
-    }
-
-    public Passenger(String firstName, String lastName, String phoneNumber, City city)
-    {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.city = city;
     }
 
     public Long getId()

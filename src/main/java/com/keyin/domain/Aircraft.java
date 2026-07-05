@@ -3,6 +3,10 @@ package com.keyin.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents an aircraft in the aviation system
+ * An aircraft can be related to multiple passengers and airports
+ */
 public class Aircraft
 {
     private Long id;
@@ -16,23 +20,6 @@ public class Aircraft
     public Aircraft()
     {
 
-    }
-
-    public Aircraft(String type, String airlineName, int numberOfPassengers)
-    {
-        this.type = type;
-        this.airlineName = airlineName;
-        this.numberOfPassengers = numberOfPassengers;
-    }
-
-    public Aircraft(Long id, String type, String airlineName, int numberOfPassengers, List<Passenger> passengers, List<Airport> airports)
-    {
-        this.id = id;
-        this.type = type;
-        this.airlineName = airlineName;
-        this.numberOfPassengers = numberOfPassengers;
-        this.passengers = passengers;
-        this.airports = airports;
     }
 
     public Long getId()

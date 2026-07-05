@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+@SuppressWarnings({"SequencedCollectionMethodCanBeUsed", "TextBlockMigration"})
 public class RESTClientTest
 {
     @Test
@@ -55,6 +56,7 @@ public class RESTClientTest
     }
 
 
+    @SuppressWarnings("SequencedCollectionMethodCanBeUsed")
     @Test
     public void testBuildPassengerListFromResponse() throws Exception
     {
@@ -67,6 +69,7 @@ public class RESTClientTest
         List<Passenger> passengers = restClientUnderTest.buildPassengerListFromResponse(jsonResponse);
 
         Assertions.assertEquals(1, passengers.size());
+        //noinspection SequencedCollectionMethodCanBeUsed
         Assertions.assertEquals(1, passengers.get(0).getId());
         Assertions.assertEquals("John", passengers.get(0).getFirstName());
         Assertions.assertEquals("Smith", passengers.get(0).getLastName());
@@ -75,6 +78,7 @@ public class RESTClientTest
         Assertions.assertFalse(passengers.isEmpty());
     }
 
+    @SuppressWarnings("SequencedCollectionMethodCanBeUsed")
     @Test
     public void testBuildAircraftListFromResponse() throws Exception
     {

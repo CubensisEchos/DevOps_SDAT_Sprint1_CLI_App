@@ -8,10 +8,18 @@ import com.keyin.http.client.RESTClient;
 
 import java.util.List;
 
+/**
+ * CLI application responsible for gathering and displaying reports
+ * based on data retrieved form the API
+ */
 public class CliApplication
 {
     private RESTClient restClient;
 
+    /**
+     * Generates a report of all cities and the airports within them
+     * Data is retrieved from the API and printed, showing each city, followed by its airports
+     */
     public void airportsInSpecificCityReport()
     {
         List<City> cities = getRestClient().getAllCities();
@@ -33,6 +41,10 @@ public class CliApplication
         System.out.println(report.toString());
     }
 
+    /**
+     * Generates a report of all aircraft and the passengers who haven flown on them
+     * Displays aircraft info, followed by a list of its passengers, or a no passengers message
+     */
     public void passengersFlownOnSpecificAircraftReport ()
     {
         List<Aircraft> aircraftList = getRestClient().getAllAircraft();
@@ -68,6 +80,10 @@ public class CliApplication
         System.out.println(report.toString());
     }
 
+    /**
+     * Generates a report showing which airports each aircraft has used
+     * Aircraft are listed, followed by their respective airports
+     */
     public void airportsUsedBySpecificAircraftReport ()
     {
         List<Aircraft> aircraftList = getRestClient().getAllAircraft();
@@ -91,6 +107,10 @@ public class CliApplication
 
     }
 
+    /**
+     * Generates a report of passengers and the aircraft they've traveled on,
+     * as well as the airports used by those aircraft
+     */
     public void passengersTravelledFromSpecificAirportReport ()
     {
         List<Passenger> passengers = getRestClient().getAllPassengers();
@@ -142,6 +162,12 @@ public class CliApplication
         System.out.println(report.toString());
     }
 
+    /**
+     * Helper method that appends airport information into a report
+     *
+     * @param report StringBuilder is used to build the output
+     * @param airports list of airports to append
+     */
     private void appendAirports(StringBuilder report, List<Airport> airports)
     {
         if (airports != null && !airports.isEmpty())
@@ -161,6 +187,11 @@ public class CliApplication
         }
     }
 
+    /**
+     * Returns the RESTClient instance, or creates one if there isn't one
+     *
+     * @return RESTClient instance used for API communication
+     */
     public RESTClient getRestClient ()
     {
         if (restClient == null) {
