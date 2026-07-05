@@ -3,6 +3,10 @@ package com.keyin.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents an airport in the aviation system
+ * An airport belongs to a city and can be related to multiple aircraft
+ */
 public class Airport
 {
     private Long id;
@@ -16,22 +20,6 @@ public class Airport
     public Airport()
     {
 
-    }
-
-    public Airport(String name, String airportCode, City city)
-    {
-        this.name = name;
-        this.airportCode = airportCode;
-        this.city = city;
-    }
-
-    public Airport(Long id, String name, String airportCode, City city, List<Aircraft> aircraftList)
-    {
-        this.id = id;
-        this.name = name;
-        this.airportCode = airportCode;
-        this.city = city;
-        this.aircraftList = aircraftList;
     }
 
     public Long getId()

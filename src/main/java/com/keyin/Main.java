@@ -5,6 +5,10 @@ import com.keyin.http.client.RESTClient;
 
 import java.util.Scanner;
 
+/**
+ * Entry point for the Aviation CLI application
+ *Initializes the REST client and displays the menu to a scanner
+ */
 public class Main
 {
     public static void main(String[] args)
