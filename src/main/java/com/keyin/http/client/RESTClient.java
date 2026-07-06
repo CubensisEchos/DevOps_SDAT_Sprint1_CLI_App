@@ -17,6 +17,7 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * RESR client responsible for communicating with the API
  * Sends HTTP requests and turns JSON responses into domain objects
@@ -141,12 +142,12 @@ public class RESTClient
      * @return list of passenger objects
      * @throws JsonProcessingException if JSON parsing fails
      */
-    public List<Passenger> buildPassengerListFromResponse(String response) throws JsonProcessingException
+    public List<Passenger> buildPassengerListFromResponse(String response) throws JsonProcessingException, IOException
     {
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
-        return mapper.readValue(response, new TypeReference<List<Passenger>>() {});
+        return mapper.readTree(response).get("content").traverse(mapper).readValueAs(new TypeReference<List<Passenger>>() {});
     }
 
     /**
@@ -156,12 +157,12 @@ public class RESTClient
      * @return list of aircraft objects
      * @throws JsonProcessingException if JSON parsing fails
      */
-    public List<Aircraft> buildAircraftListFromResponse(String response) throws JsonProcessingException
+    public List<Aircraft> buildAircraftListFromResponse(String response) throws JsonProcessingException, IOException
     {
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
-        return mapper.readValue(response, new TypeReference<List<Aircraft>>() {});
+        return mapper.readTree(response).get("content").traverse(mapper).readValueAs(new TypeReference<List<Aircraft>>() {});
     }
 
     /**
