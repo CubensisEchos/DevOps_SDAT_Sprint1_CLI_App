@@ -56,13 +56,12 @@ public class RESTClientTest
     }
 
 
-    @SuppressWarnings("SequencedCollectionMethodCanBeUsed")
     @Test
     public void testBuildPassengerListFromResponse() throws Exception
     {
         String jsonResponse =
-                "[\n" + "{\n" + "\"id\": 1,\n" + "\"firstName\": \"John\",\n" + "\"lastName\": \"Smith\",\n" +
-                "\"phoneNumber\": \"555-1234\"\n" + "}\n" + "]";
+                "{\n" + "\"content\": [\n" + "{\n" + "\"id\": 1,\n" + "\"firstName\": \"John\",\n" + "\"lastName\": \"Smith\",\n" +
+                "\"phoneNumber\": \"555-1234\"\n" + "}\n" + "]\n" + "}";
 
         RESTClient restClientUnderTest = new RESTClient();
 
@@ -78,13 +77,12 @@ public class RESTClientTest
         Assertions.assertFalse(passengers.isEmpty());
     }
 
-    @SuppressWarnings("SequencedCollectionMethodCanBeUsed")
     @Test
     public void testBuildAircraftListFromResponse() throws Exception
     {
         String jsonResponse =
-                "[\n" + "{\n" + "\"id\": 1,\n" + "\"type\": \"Boeing 737\",\n" + "\"airlineName\": \"Example Airlines\",\n" +
-                        "\"numberOfPassengers\": 180,\n" + "\"passengers\": []\n" + "}\n" + "]";
+                "{\n" + "\"content\": [\n" + "{\n" + "\"id\": 1,\n" + "\"type\": \"Boeing 737\",\n" +
+                "\"airlineName\": \"Example Airlines\",\n" + "\"numberOfPassengers\": 180,\n" + "\"passengers\": []\n" + "}\n" + "]\n" + "}";
 
         RESTClient restClientUnderTest = new RESTClient();
 
